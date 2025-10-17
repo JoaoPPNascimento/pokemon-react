@@ -16,13 +16,15 @@ body {
 
 .container {
   width: 100%;
-  max-width: 480px;
+  max-width: 1200px;
   display: flex;
-  flex-direction: column;
-  gap: 24px;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 40px;
 }
 
 .pokemon-form {
+  flex: 1;
   background: #ffffff;
   padding: 36px 30px;
   border-radius: 16px;
@@ -31,6 +33,8 @@ body {
   flex-direction: column;
   gap: 18px;
   transition: all 0.3s ease;
+  height: 90vh;
+  overflow-y: auto;
 }
 
 h1 {
@@ -94,7 +98,21 @@ button:hover {
   font-size: 0.95rem;
 }
 
-/* ====== Lista de Pokémons ====== */
+.container-lista {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+  height: 90vh;
+}
+
+.container-lista h2 {
+  text-align: center;
+  color: #003490;
+  margin-bottom: 16px;
+}
 
 ul {
   list-style: none;
@@ -120,21 +138,14 @@ li:hover {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
 }
 
-li strong {
-  color: #003490;
-  font-weight: 600;
-}
-
-@media (max-width: 480px) {
-  .pokemon-form {
-    padding: 28px 22px;
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    max-width: 500px;
   }
 
-  h1 {
-    font-size: 1.4rem;
-  }
-
-  li {
-    font-size: 0.9rem;
+  .pokemon-form,
+  .container-lista {
+    width: 100%;
   }
 }

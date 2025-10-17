@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
+import Pokemon from "./components/Pokemon"
 import './App.css'
 
 function App() {
   const [mensagem, setMensagem] = useState("");
 
-  const [pokemons, setPokemons] = useState([]);
+  const [pokemons, setPokemons] = useState(() => {
+    const saved = localStorage.getItem("pokemons");
+    return saved ? JSON.parse(saved) : []
+  });
+
+  useEffect(() => {
+    localStorage.setItem("pokemons", JSON.stringify(pokemons));
+  }, [pokemons]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -60,13 +68,17 @@ function App() {
         {mensagem && <p className="mensagem">{mensagem}</p>}
       </form>
 
-      <ul>
-        {pokemons.map((pokemon, index) => (
-          <li key={index}>
-            <strong>{pokemon.nome}</strong> - Tipo: {pokemon.tipo} - Descrição: {pokemon.descricao} - Poder: {pokemon.poder}
-          </li>
-        ))}
-      </ul>
+      <div className="container-lista">
+        <h1>Pokémons Cadastrados</h1>
+        <br />
+        <ul>
+          {pokemons.map((pokemon, index) => (
+            <li key={index}>
+              <Pokemon pokemon={pokemon} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
