@@ -1,42 +1,140 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Poppins", sans-serif;
+  background: linear-gradient(160deg, #f7f7f5 0%, #e6e4df 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  color: #2c2c2c;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pokemon-form {
+  background: #ffffff;
+  padding: 36px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: all 0.3s ease;
+}
+
+h1 {
   text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #262626;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #3a3a3a;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+input,
+select,
+textarea {
+  padding: 12px 14px;
+  border: 1.8px solid #bdbbb6;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background: #fdfdfc;
+  transition: 0.25s ease;
+  color: #2c2c2c;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #003490;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 0 3px #00349028;
+}
+
+button {
+  background: #003490;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+button:hover {
+  background: #002d6b;
+  transform: translateY(-1px);
+}
+
+.mensagem {
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 500;
+  color: #003490;
+  font-size: 0.95rem;
+}
+
+/* ====== Lista de Pokémons ====== */
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+li {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-size: 0.95rem;
+  color: #2e2e2e;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+li strong {
+  color: #003490;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .pokemon-form {
+    padding: 28px 22px;
   }
-  to {
-    transform: rotate(360deg);
+
+  h1 {
+    font-size: 1.4rem;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  li {
+    font-size: 0.9rem;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
